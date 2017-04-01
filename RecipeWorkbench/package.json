@@ -1,0 +1,9 @@
+{
+  "name": "recipe-workbench",
+  "version": "0.0.0",
+  "description": "RecipeWorkbench",
+  "main": "server.js",
+  "author": {
+    "name": "lajos.pongracz"
+  }
+}
