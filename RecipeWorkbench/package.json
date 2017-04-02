@@ -1,9 +1,18 @@
 {
   "name": "recipe-workbench",
-  "version": "0.0.0",
-  "description": "RecipeWorkbench",
-  "main": "server.js",
+  "version": "1.0.0",
+  "description": "Recipe Workbench",
+  "main": "app.js",
   "author": {
     "name": "lajos.pongracz"
+  },
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "knockout": "^3.4.2",
+    "webpack": "^2.3.2"
+  },
+  "scripts": {
+    "build": "webpack"
   }
 }
