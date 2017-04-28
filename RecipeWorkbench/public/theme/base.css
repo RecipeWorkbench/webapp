@@ -1,0 +1,116 @@
+﻿body {
+}
+
+.card .material-card {
+    max-width: 320px !important;
+    margin-top: 0;
+    margin-bottom: 40px;
+    border-radius: 3px;
+    padding: 0;
+}
+
+.material-card {
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0 20px 0;
+    background-color: #fff;
+    color: #3d4051;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    min-width: 240px;
+}
+
+#navHomeNav {
+    background-color: #ffb500;
+    margin-bottom: 0px;
+}
+
+#page-content-wrapper, #navHomeNav {
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+#navHomeNav {
+    font-family: Arial;
+}
+
+#navHomeNav, #sidebar-wrapper {
+    font-size: 14px;
+}
+
+.navbar-inverse {
+    background-color: #0be;
+    box-shadow: none;
+}
+
+.navbar {
+    border: none;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.navbar-inverse {
+    background-color: #2196f3;
+    border-color: transparent;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+
+.cardBackground {
+    background-color: #f2f2f2 !important;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.orangecard {
+    background-color: #f37a20;
+}
+
+.glyphicon {
+    position: absolute;
+    color: white;
+    font-size: 25px;
+    padding-left: 15px;
+    margin-top: -1px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.glyphicon-bookmark:before {
+    content: "\e044";
+}
+
+.font {
+    color: #0d95d3;
+}
+
+/*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}*/
+
+/*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}*/

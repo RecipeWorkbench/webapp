@@ -7,5 +7,15 @@
 </head>
 <body>
 <p>Home</p>
+
+    <ul data-bind="foreach: cards">
+        <li class="card material-card">
+            The current item is: <b data-bind="text: $data"></b>
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+        ko.applyBindings(new ViewModels.HomePageViewModel());
+    </script>
 </body>
 </html>

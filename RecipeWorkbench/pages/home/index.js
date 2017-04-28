@@ -1,4 +1,11 @@
-import * as ko from 'knockout';
+import BasePageViewModel from '../../pages/base'
 
-class HomePageViewModel {
+export class HomePageViewModel extends BasePageViewModel {
+    constructor() {
+        super();
+        this.currentPage("home");
+        console.log(this.pages());
+
+        this.cards = ko.observableArray(["aladdin", "king"]);
+    }
 }

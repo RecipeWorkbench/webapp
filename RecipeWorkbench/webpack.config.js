@@ -8,7 +8,11 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, "public/dist"),
-        filename: "[name].bundle.js"
+        filename: "[name].bundle.js",
+        library: 'ViewModels'
+    },
+    resolve: {
+        modules: [path.resolve(__dirname, "components"), path.resolve(__dirname, "pages"),"node_modules"]
     },
     externals: {
         "knockout": "knockout"

@@ -29,6 +29,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="pages\base.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pages\contribution\index.js" />
     <Compile Include="pages\home\index.js" />
     <Compile Include="public\dist\common.js" />
@@ -36,6 +39,9 @@
     <Compile Include="public\dist\home.bundle.js" />
     <Compile Include="webpack.config.js" />
     <Content Include="package.json" />
+    <Content Include="public\theme\base.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\pages\contribution.ejs" />
     <Content Include="views\pages\home.ejs">
       <SubType>Code</SubType>
@@ -45,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="components\" />
+    <Folder Include="public\theme\" />
     <Folder Include="views\" />
     <Folder Include="views\pages\" />
     <Folder Include="views\partials\" />
