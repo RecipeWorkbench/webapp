@@ -1,6 +1,18 @@
 ﻿class BasePageViewModel {
     constructor() {
-        this.pages = ko.observableArray([{ link: "", name: "Home" }, { link: "", name: "Recipes" }]);
+        this.pages = ko.observableArray([{
+            url: "home",
+            name: "Home"
+        },
+        {
+            url: "recipes",
+            name: "Recipes"
+        },
+        {
+            url: "transform-recipe",
+            name: "Transform Recipe"
+        }]);
+
         this.currentPage = ko.observable();
     }
 }

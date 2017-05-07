@@ -1,5 +1,5 @@
 var ViewModels =
-webpackJsonpViewModels([4],[
+webpackJsonpViewModels([3],[
 /* 0 */
 /***/ (function(module, exports) {
 
@@ -28,27 +28,28 @@ module.exports = exports = BasePageViewModel;
 /***/ }),
 /* 1 */,
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_base__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_base___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__pages_base__);
+﻿
 
-
-class HomePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
+class RecipePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
     constructor() {
         super();
-        this.currentPage("home");
+        this.currentPage("recipe");
         console.log(this.pages());
 
         this.cards = ko.observableArray(["aladdin", "king"]);
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["HomePageViewModel"] = HomePageViewModel;
+/* harmony export (immutable) */ __webpack_exports__["RecipePageViewModel"] = RecipePageViewModel;
 
 
 
 /***/ })
-],[3]);
+],[4]);

@@ -1,4 +1,5 @@
 ﻿body {
+    margin: 0;
 }
 
 .card .material-card {
@@ -20,21 +21,36 @@
     min-width: 240px;
 }
 
-#navHomeNav {
+nav {
+    transition: all .5s ease;
     background-color: #ffb500;
     margin-bottom: 0px;
 }
 
-#page-content-wrapper, #navHomeNav {
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
 }
 
-#navHomeNav {
-    font-family: Arial;
+nav ul li:hover {
+    color: white;
+    background-color: #33001a;
 }
+
+nav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+}
+
+/*nav {
+    font-family: Arial;
+}*/
 
 #navHomeNav, #sidebar-wrapper {
     font-size: 14px;
@@ -56,7 +72,7 @@
     border-color: transparent;
 }
 
-.navbar-fixed-top {
+nav {
     top: 0;
     border-width: 0 0 1px;
 }

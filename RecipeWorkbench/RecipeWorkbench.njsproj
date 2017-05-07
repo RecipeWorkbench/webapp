@@ -34,6 +34,15 @@
     </Compile>
     <Compile Include="pages\contribution\index.js" />
     <Compile Include="pages\home\index.js" />
+    <Compile Include="pages\recipes\index.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pages\recipe\index.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pages\transform\index.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="public\dist\common.js" />
     <Compile Include="public\dist\contribution.bundle.js" />
     <Compile Include="public\dist\home.bundle.js" />
@@ -46,11 +55,19 @@
     <Content Include="views\pages\home.ejs">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\pages\recipe.ejs" />
+    <Content Include="views\pages\recipes.ejs" />
+    <Content Include="views\pages\transform.ejs" />
+    <Content Include="views\partials\footer.ejs" />
     <Content Include="views\partials\head.ejs" />
     <Content Include="README.md" />
+    <Content Include="views\partials\navigation.ejs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="components\" />
+    <Folder Include="pages\transform\" />
+    <Folder Include="pages\recipe\" />
+    <Folder Include="pages\recipes\" />
     <Folder Include="public\theme\" />
     <Folder Include="views\" />
     <Folder Include="views\pages\" />

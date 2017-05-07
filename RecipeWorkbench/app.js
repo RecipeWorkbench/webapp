@@ -15,6 +15,25 @@ app.get('/', function (req, res) {
     res.render('pages/home');
 });
 
+app.get('/home', function (req, res) {
+    res.render('pages/home');
+});
+
+// Recipes page.
+app.get('/recipes', function (req, res) {
+    res.render('pages/recipes');
+});
+
+// Recipe page.
+app.get('/recipe', function (req, res) {
+    res.render('pages/recipe');
+});
+
+// Transform Recipe page.
+app.get('/transform-recipe', function (req, res) {
+    res.render('pages/transform');
+});
+
 // Contribution page.
 app.get('/contribution', function (req, res) {
     res.render('pages/contribution');
