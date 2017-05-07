@@ -1,4 +1,6 @@
 'use strict';
+require('dotenv').config()
+
 // Load the things we need.
 var express = require('express');
 var app = express();
@@ -12,31 +14,31 @@ app.use('/static', express.static('public'));
 
 // Home page.
 app.get('/', function (req, res) {
-    res.render('pages/home');
+    res.render('pages/home', { api: process.env.BACKEND });
 });
 
 app.get('/home', function (req, res) {
-    res.render('pages/home');
+    res.render('pages/home', { api: process.env.BACKEND });
 });
 
 // Recipes page.
 app.get('/recipes', function (req, res) {
-    res.render('pages/recipes');
+    res.render('pages/recipes', { api: process.env.BACKEND });
 });
 
 // Recipe page.
 app.get('/recipe', function (req, res) {
-    res.render('pages/recipe');
+    res.render('pages/recipe', { api: process.env.BACKEND });
 });
 
 // Transform Recipe page.
 app.get('/transform-recipe', function (req, res) {
-    res.render('pages/transform');
+    res.render('pages/transform', { api: process.env.BACKEND });
 });
 
 // Contribution page.
 app.get('/contribution', function (req, res) {
-    res.render('pages/contribution');
+    res.render('pages/contribution', { api: process.env.BACKEND });
 });
 
 app.listen(port);

@@ -46,7 +46,11 @@
     <Compile Include="public\dist\common.js" />
     <Compile Include="public\dist\contribution.bundle.js" />
     <Compile Include="public\dist\home.bundle.js" />
+    <Compile Include="services\restservice.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="webpack.config.js" />
+    <Content Include=".env" />
     <Content Include="package.json" />
     <Content Include="public\theme\base.css">
       <SubType>Code</SubType>
@@ -65,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="components\" />
+    <Folder Include="services\" />
     <Folder Include="pages\transform\" />
     <Folder Include="pages\recipe\" />
     <Folder Include="pages\recipes\" />

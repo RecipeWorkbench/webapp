@@ -15,7 +15,7 @@ module.exports = {
         library: 'ViewModels'
     },
     resolve: {
-        modules: [path.resolve(__dirname, "components"), path.resolve(__dirname, "pages"),"node_modules"]
+        modules: [path.resolve(__dirname, "components"), path.resolve(__dirname, "pages"), path.resolve(__dirname, "services"),"node_modules"]
     },
     externals: {
         "knockout": "knockout",

@@ -1,6 +1,7 @@
 var ViewModels =
-webpackJsonpViewModels([3],[
-/* 0 */
+webpackJsonpViewModels([3],{
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 ﻿class BasePageViewModel {
@@ -26,10 +27,8 @@ module.exports = exports = BasePageViewModel;
 
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+
+/***/ 5:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52,4 +51,5 @@ class RecipePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___defa
 
 
 /***/ })
-],[4]);
+
+},[5]);

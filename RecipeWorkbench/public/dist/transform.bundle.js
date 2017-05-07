@@ -1,5 +1,5 @@
 var ViewModels =
-webpackJsonpViewModels([1],{
+webpackJsonpViewModels([2],{
 
 /***/ 0:
 /***/ (function(module, exports) {
@@ -28,7 +28,7 @@ module.exports = exports = BasePageViewModel;
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52,4 +52,4 @@ class TransformRecipePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_ba
 
 /***/ })
 
-},[6]);
+},[7]);

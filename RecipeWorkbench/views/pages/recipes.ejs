@@ -8,9 +8,9 @@
 <body>
     <% include ../partials/navigation %>
 
-    <ul data-bind="foreach: cards">
+    <ul data-bind="foreach: recipes">
         <li class="card material-card">
-            The current item is: <b data-bind="text: $data"></b>
+            The current item is: <b data-bind="text: $data.name"></b>
         </li>
     </ul>
 

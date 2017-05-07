@@ -28,7 +28,8 @@ module.exports = exports = BasePageViewModel;
 /***/ }),
 /* 1 */,
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,4 +52,4 @@ class HomePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___defaul
 
 
 /***/ })
-],[3]);
+],[4]);
