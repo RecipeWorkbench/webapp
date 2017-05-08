@@ -15,6 +15,10 @@ body {
     -webkit-box-shadow: inset 0 -3px 0 #2196f3;
 }
 
+.bordo-active {
+    background-color: rgba(0,0,0,.7)!important; */
+}
+
 .card .material-card {
     max-width: 320px !important;
     margin-top: 0;
