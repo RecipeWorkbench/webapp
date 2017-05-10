@@ -1,9 +1,25 @@
+﻿html {
+    background-color: #f2f2f2;
+}
+
 body {
     margin: 0;
 }
 
-.nav-tab-content {
+header.content {
     background-color: #f6f6f6;
+}
+
+#content {
+    width: 96%;
+    margin: 0 auto;
+}
+
+#content ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .py-7-bluefont {
@@ -30,7 +46,7 @@ body {
 .material-card {
     position: relative;
     overflow: hidden;
-    margin: 10px 0 20px 0;
+    margin: 10px;
     background-color: #fff;
     color: #3d4051;
     border-radius: 2px;
@@ -52,17 +68,22 @@ nav ul {
     flex-direction: row;
 }
 
-nav ul li:hover {
-    color: white;
-    background-color: #33001a;
+    nav ul li:hover {
+        color: white;
+        background-color: #33001a;
+    }
+
+nav ul li {
+    padding: 10px 15px;
 }
 
 nav a {
-    padding: 10px 15px;
     text-decoration: none;
     color: inherit;
     background-color: inherit;
     text-align: center;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 /*nav {
@@ -136,41 +157,21 @@ nav {
     color: #0d95d3;
 }
 
-.btn {
-    text-transform: uppercase;
-    border: none;
-    -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    transition: all 0.4s;
-}
-
-.btn-primary {
-    -webkit-background-size: 200% 200%;
-    background-size: 200%;
-    background-position: 50%;
-}
-
-.pull-right {
-    float: right !important;
-}
-
 .btn-primary {
     color: #ffffff;
     background-color: #2196f3;
-    border-color: transparent;
 }
 
 .btn {
+    text-transform: uppercase;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    transition: all 0.4s;
     display: inline-block;
     margin-bottom: 0;
     font-weight: normal;
     text-align: center;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
     touch-action: manipulation;
-    cursor: pointer;
     background-image: none;
     border: 1px solid transparent;
     white-space: nowrap;
@@ -178,9 +179,6 @@ nav {
     font-size: 13px;
     line-height: 1.846;
     border-radius: 3px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 }
 

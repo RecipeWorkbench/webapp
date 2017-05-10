@@ -20,6 +20,7 @@ webpackJsonpViewModels([3],{
         }]);
 
         this.currentPage = ko.observable();
+        this.pageTitle = ko.observable();
     }
 }
 

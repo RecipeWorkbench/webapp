@@ -4,7 +4,7 @@ export class HomePageViewModel extends BasePageViewModel {
     constructor() {
         super();
         this.currentPage("home");
-        console.log(this.pages());
+        this.pageTitle("Home");
 
         this.cards = ko.observableArray(["aladdin", "king"]);
     }

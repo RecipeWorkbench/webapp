@@ -19,6 +19,7 @@ webpackJsonpViewModels([4],[
         }]);
 
         this.currentPage = ko.observable();
+        this.pageTitle = ko.observable();
     }
 }
 
@@ -42,7 +43,7 @@ class HomePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___defaul
     constructor() {
         super();
         this.currentPage("home");
-        console.log(this.pages());
+        this.pageTitle("Home");
 
         this.cards = ko.observableArray(["aladdin", "king"]);
     }
