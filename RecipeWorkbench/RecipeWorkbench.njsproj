@@ -66,6 +66,7 @@
     <Content Include="views\partials\head.ejs" />
     <Content Include="README.md" />
     <Content Include="views\partials\navigation.ejs" />
+    <Content Include="views\partials\templates.ejs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="components\" />

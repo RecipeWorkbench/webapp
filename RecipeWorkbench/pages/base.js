@@ -15,6 +15,7 @@
 
         this.currentPage = ko.observable();
         this.pageTitle = ko.observable();
+        this.contentTemplate = ko.observable("");
     }
 }
 

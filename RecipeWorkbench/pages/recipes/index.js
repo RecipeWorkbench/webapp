@@ -37,11 +37,58 @@ function nextPageButtonEnabled() {
     return this.selectedPage().page !== (this.pagerLength() - 1);
 }
 
+function recipesFetched(viewModel) {
+    return function (recipes) {
+        viewModel.recipes(JSON.parse(recipes));
+
+        if (viewModel.recipes.peek().length > 0) {
+            viewModel.contentTemplate("recipes-template");
+        }
+        else {
+            viewModel.contentTemplate("no-data-template");
+        }
+    };
+}
+
+function recipesFetchedError(viewModel) {
+    return function (error) {
+        viewModel.contentTemplate("no-data-template");
+        console.log(error.statusText);
+    };
+}
+
+function countFetched(viewModel) {
+    return function (count) {
+        viewModel.count(count);
+    };
+}
+
+function countFetchedError(viewModel) {
+    return function (error) {
+        console.log(error.statusText);
+    };
+}
+
+function triggerGetRecipesFromRecipeFilter() {
+    var params = {
+        name: this.recipeFilter(),
+        ingredient: 0,
+        cuisine: 0,
+        skip: this.skip(),
+        take: this.take()
+    };
+
+    this.contentTemplate("loader-template");
+    this.services.getRecipes(params).then(recipesFetched(this), recipesFetchedError(this));
+    this.services.getRecipesCount(params).then(countFetched(this), countFetchedError(this));
+}
+
 export class RecipesPageViewModel extends BasePageViewModel {
     constructor() {
         super();
         this.currentPage("recipes");
         this.pageTitle("Recipes");
+        this.contentTemplate("no-data-template");
 
         this.ingredients = ko.observableArray([]);
         this.ingredientFilter = ko.observable("");
@@ -57,32 +104,21 @@ export class RecipesPageViewModel extends BasePageViewModel {
         this.nextPageButtonEnabled = ko.pureComputed(nextPageButtonEnabled, this);
 
         this.services = new RecipesRestService();
-        this.services.getRecipesStartingWith("Can", this.getRecipesQueryParams()).then(this.recipesFetched(this), this.recipesFetchedError(this));
+
+        ko.computed(triggerGetRecipesFromRecipeFilter, this).extend({
+            rateLimit: {
+                method: "notifyWhenChangesStop",
+                timeout: 400
+            }
+        });
     }
 
-    onNextPage(e,d,a,f) {
+    onNextPage(e, d, a, f) {
+        var vv = a;
     }
 
-    onPreviousPage(e,d,a,f) {
-    }
-
-    getRecipesQueryParams() {
-        return {
-            skip: this.skip.peek(),
-            take: this.take.peek()
-        };
-    }
-
-    recipesFetched(viewModel) {
-        return function (recipes) {
-            viewModel.recipes(JSON.parse(recipes));
-        };
-    }
-
-    recipesFetchedError(viewModel) {
-        return function (error) {
-            console.log(error.statusText);
-        };
+    onPreviousPage(e, d, a, f) {
+        var vv = a;
     }
 }
 
@@ -92,11 +128,28 @@ class RecipesRestService extends RestService {
         this.endpoint = this.hostUrl + "recipe/";
     }
 
-    getRecipesStartingWith(name, options) {
+    getRecipes(options) {
         return this.request({
             method: RestService.method.GET,
-            url: this.endpoint + "startswith/" + name,
+            url: this.endpoint + "filter",
             params: {
+                name: options.name,
+                ingredient: options.ingredient,
+                cuisine: options.cuisine,
+                skip: options.skip,
+                take: options.take
+            }
+        });
+    }
+
+    getRecipesCount(options) {
+        return this.request({
+            method: RestService.method.GET,
+            url: this.endpoint + "count",
+            params: {
+                name: options.name,
+                ingredient: options.ingredient,
+                cuisine: options.cuisine,
                 skip: options.skip,
                 take: options.take
             }
