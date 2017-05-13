@@ -6,6 +6,20 @@ body {
     margin: 0;
 }
 
+.nopadding {
+    padding: 0;
+}
+
+main {
+    margin-top: 14px;
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
 header.content {
     background-color: #f6f6f6;
 }
@@ -25,11 +39,50 @@ header.content {
     margin: 0 auto;
 }
 
-#recipes-list ul {
+ul.recipes {
     margin: 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+.material-card-content {
+    height: 72px;
+    margin: 0;
+    padding: 4px;
+}
+
+.material-card-action {
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    background-color: #3498db;
+}
+
+.material-card-button {
+    color: white;
+    width: 50%;
+}
+
+.material-card-button:hover {
+    background-color: #ffb500;
+}
+
+.material-card-button a {
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 .py-7-bluefont {
@@ -42,15 +95,7 @@ header.content {
 }
 
 .bordo-active {
-    background-color: rgba(0,0,0,.7)!important; */
-}
-
-.card .material-card {
-    max-width: 320px !important;
-    margin-top: 0;
-    margin-bottom: 40px;
-    border-radius: 3px;
-    padding: 0;
+    background-color: rgba(0,0,0,.7)!important;
 }
 
 .material-card {
@@ -66,7 +111,7 @@ header.content {
 
 nav {
     transition: all .5s ease;
-    background-color: #ffb500;
+    background-color: #2196f3;
     margin-bottom: 0px;
     box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 }
@@ -79,22 +124,34 @@ nav ul {
     flex-direction: row;
 }
 
-    nav ul li:hover {
-        color: white;
-        background-color: #33001a;
-    }
+/*nav ul li:hover {
+    color: white;
+    background-color: #33001a;
+}*/
 
 nav ul li {
-    padding: 10px 15px;
+    display: block;
+    height: 48px;
+    padding: 0;
+    color: white;
 }
 
 nav a {
+    display: block;
     text-decoration: none;
     color: inherit;
     background-color: inherit;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-family: Verdana, Geneva, sans-serif;
+}
+
+nav a.logo {
+    padding: 4px 5px 1px 0px;
+}
+
+nav a.link {
+    padding: 14px 15px;
 }
 
 /*nav {
@@ -253,7 +310,7 @@ p.information {
 }
 
 /*{
-    -webkit-box-sizing: border-box;
+    -webkit-box-sizing: #4b4f56;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }*/

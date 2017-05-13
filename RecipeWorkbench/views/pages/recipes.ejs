@@ -11,32 +11,48 @@
 
     <template id="recipes-template">
         <div id="recipes-list">
-            <ul data-bind="foreach: recipes">
-                <li class="card material-card">
-                    The current item is: <b data-bind="text: $data.name"></b>
+            <ul class="recipes" data-bind="foreach: recipes">
+                <li class="material-card">
+                    <div class="material-card-content">
+                        <b data-bind="text: $data.name"></b>
+                        <b data-bind="text: $data.cuisine.name"></b>
+                    </div>
+                    <div class="material-card-action">
+                        <div class="material-card-button">
+                            <a data-bind="attr: { href: 'transform-recipe/' + $data.id, title: 'Transform' }, text: 'Transform'"></a>
+                        </div>
+                        <div class="material-card-button">
+                            <a data-bind="attr: { href: 'recipe/' + $data.id, title: 'View' }, text: 'View'"></a>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
     </template>
     
     <main>
-        <header class="content">
-            <h1 data-bind="text: $data.pageTitle"></h1>
-            <div id="recipe-filter">
-                <input type="text" data-bind="value: $data.recipeFilter" placeholder="Search recipes starting with..." />
-                <!--<input type="text" list="ingredients" data-bind="value: $data.ingredientFilter" />
-                <datalist id="ingredients" data-bind="foreach: $data.ingredients"></datalist>-->
-                <button class="btn" data-bind="enable: $data.previousPageButtonEnabled, click: onPreviousPage,
-                        css: { 'btn-primary': $data.previousPageButtonEnabled }">&#8249;</button>
-                <select data-bind="options: $data.pager,
+        <div class="container">
+            <header class="content">
+                <div id="recipe-filter">
+                    <input type="text" data-bind="value: $data.recipeFilter" placeholder="Search recipes starting with..." />
+                    <!--<input type="text" list="ingredients" data-bind="value: $data.ingredientFilter" />
+                    <datalist id="ingredients" data-bind="foreach: $data.ingredients"></datalist>-->
+                    <button class="btn" data-bind="enable: $data.previousPageButtonEnabled, click: onPreviousPage,
+                        css: { 'btn-primary': $data.previousPageButtonEnabled }">
+                        &#8249;
+                    </button>
+                    <select data-bind="options: $data.pager,
                         value: $data.selectedPage,
                         optionsText: 'text'"></select>
-                <button class="btn" data-bind="enable: $data.nextPageButtonEnabled, click: onNextPage,
-                        css: { 'btn-primary': $data.nextPageButtonEnabled }">&#8250;</button>
-            </div>
-        </header>
+                    <button class="btn" data-bind="enable: $data.nextPageButtonEnabled, click: onNextPage,
+                        css: { 'btn-primary': $data.nextPageButtonEnabled }">
+                        &#8250;
+                    </button>
+                </div>
+            </header>
 
-        <section id="content" data-bind="template: { name: contentTemplate }"></section>
+            <section id="content" data-bind="template: { name: contentTemplate }"></section>
+        </div>
     </main>
 
     <% include ../partials/footer %>

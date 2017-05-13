@@ -6,12 +6,12 @@
         },
         {
             url: "recipes",
-            name: "Recipes"
+            name: "Filter recipes"
         },
-        {
-            url: "transform-recipe",
-            name: "Transform Recipe"
-        }]);
+        /*{
+            url: "statistics",
+            name: "Statistics"
+        }*/]);
 
         this.currentPage = ko.observable();
         this.pageTitle = ko.observable();

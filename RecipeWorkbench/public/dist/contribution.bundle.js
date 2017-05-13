@@ -1,5 +1,5 @@
 var ViewModels =
-webpackJsonpViewModels([1],[
+webpackJsonpViewModels([3],[
 /* 0 */,
 /* 1 */,
 /* 2 */

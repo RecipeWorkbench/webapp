@@ -2,13 +2,13 @@
 import RestService from '../../services/restservice'
 
 function getPager() {
-    var pages = this.count() / this.take();
+    var pages = Math.floor(this.count() / this.take());
     if (this.count() % this.take() !== 0) {
         pages = pages + 1;
     }
 
     var pager = [];
-    for (var i = 0; i < pages; pages++) {
+    for (var i = 0; i < pages; i++) {
         pager.push({
             page: i,
             text: (i + 1) + " / " + pages
@@ -59,7 +59,7 @@ function recipesFetchedError(viewModel) {
 
 function countFetched(viewModel) {
     return function (count) {
-        viewModel.count(count);
+        viewModel.count(parseInt(count));
     };
 }
 

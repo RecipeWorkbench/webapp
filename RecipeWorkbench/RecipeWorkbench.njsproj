@@ -52,6 +52,7 @@
     <Compile Include="webpack.config.js" />
     <Content Include=".env" />
     <Content Include="package.json" />
+    <Content Include="public\images\logo.png" />
     <Content Include="public\theme\base.css">
       <SubType>Code</SubType>
     </Content>
@@ -70,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="components\" />
+    <Folder Include="public\images\" />
     <Folder Include="services\" />
     <Folder Include="pages\transform\" />
     <Folder Include="pages\recipe\" />

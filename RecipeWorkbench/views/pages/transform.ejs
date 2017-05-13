@@ -3,21 +3,22 @@
 <head>
     <% include ../partials/head %>
     <script type="text/javascript" src="/static/dist/transform.bundle.js"></script>
+    <script type="text/javascript">var __RECIPE__ = "<%- recipe %>";</script>
     <title>Transform Recipe</title>
 </head>
 <body>
     <% include ../partials/navigation %>
 
-    <ul data-bind="foreach: cards">
+    <ul data-bind="foreach: recipes">
         <li class="card material-card">
-            The current item is: <b data-bind="text: $data"></b>
+            The current item is: <b data-bind="text: $data.name"></b>
         </li>
     </ul>
 
     <% include ../partials/footer %>
 
     <script type="text/javascript">
-        ko.applyBindings(new ViewModels.TransformRecipePageViewModel());
+        ko.applyBindings(new ViewModels.TransformRecipePageViewModel(__RECIPE__));
     </script>
 </body>
 </html>

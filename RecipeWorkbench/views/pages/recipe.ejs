@@ -3,6 +3,7 @@
 <head>
     <% include ../partials/head %>
     <script type="text/javascript" src="/static/dist/recipe.bundle.js"></script>
+    <script type="text/javascript">var __RECIPE__ = "<%- recipe %>";</script>
     <title>Recipe</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
     <% include ../partials/footer %>
 
     <script type="text/javascript">
-        ko.applyBindings(new ViewModels.RecipePageViewModel());
+        ko.applyBindings(new ViewModels.RecipePageViewModel(__RECIPE__));
     </script>
 </body>
 </html>

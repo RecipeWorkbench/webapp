@@ -27,13 +27,13 @@ app.get('/recipes', function (req, res) {
 });
 
 // Recipe page.
-app.get('/recipe', function (req, res) {
-    res.render('pages/recipe', { api: process.env.BACKEND });
+app.get('/recipe/:id', function (req, res) {
+    res.render('pages/recipe', { api: process.env.BACKEND, recipe: req.params.id });
 });
 
 // Transform Recipe page.
-app.get('/transform-recipe', function (req, res) {
-    res.render('pages/transform', { api: process.env.BACKEND });
+app.get('/transform-recipe/:id', function (req, res) {
+    res.render('pages/transform', { api: process.env.BACKEND, recipe: req.params.id });
 });
 
 // Contribution page.

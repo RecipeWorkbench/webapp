@@ -1,5 +1,5 @@
 var ViewModels =
-webpackJsonpViewModels([0],[
+webpackJsonpViewModels([1],[
 /* 0 */
 /***/ (function(module, exports) {
 
@@ -11,12 +11,12 @@ webpackJsonpViewModels([0],[
         },
         {
             url: "recipes",
-            name: "Recipes"
+            name: "Filter recipes"
         },
-        {
-            url: "transform-recipe",
-            name: "Transform Recipe"
-        }]);
+        /*{
+            url: "statistics",
+            name: "Statistics"
+        }*/]);
 
         this.currentPage = ko.observable();
         this.pageTitle = ko.observable();
@@ -113,13 +113,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 function getPager() {
-    var pages = this.count() / this.take();
+    var pages = Math.floor(this.count() / this.take());
     if (this.count() % this.take() !== 0) {
         pages = pages + 1;
     }
 
     var pager = [];
-    for (var i = 0; i < pages; pages++) {
+    for (var i = 0; i < pages; i++) {
         pager.push({
             page: i,
             text: (i + 1) + " / " + pages
@@ -170,7 +170,7 @@ function recipesFetchedError(viewModel) {
 
 function countFetched(viewModel) {
     return function (count) {
-        viewModel.count(count);
+        viewModel.count(parseInt(count));
     };
 }
 
