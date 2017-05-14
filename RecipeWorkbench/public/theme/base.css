@@ -225,6 +225,21 @@ nav {
     color: #0d95d3;
 }
 
+/*====== Slider ========*/
+
+.slideup, .slidedown {
+    max-height: 0;
+    /*overflow-y: hidden;*/
+    overflow-y: scroll;
+    transition: max-height 0.8s ease-in-out;
+}
+
+.slidedown {
+    max-height: 240px;
+}
+
+/*===== Slider end =====*/
+
 /*====== Loader icon ===========*/
 
 .loader-container {

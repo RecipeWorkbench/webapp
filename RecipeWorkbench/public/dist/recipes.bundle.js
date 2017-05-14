@@ -224,11 +224,11 @@ class RecipesPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___def
         });
     }
 
-    onNextPage(e, d, a, f) {
+    onNextPage(viewModel, event) {
         var vv = a;
     }
 
-    onPreviousPage(e, d, a, f) {
+    onPreviousPage(viewModel, event) {
         var vv = a;
     }
 }

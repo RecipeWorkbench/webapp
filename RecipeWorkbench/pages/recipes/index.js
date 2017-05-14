@@ -113,11 +113,11 @@ export class RecipesPageViewModel extends BasePageViewModel {
         });
     }
 
-    onNextPage(e, d, a, f) {
+    onNextPage(viewModel, event) {
         var vv = a;
     }
 
-    onPreviousPage(e, d, a, f) {
+    onPreviousPage(viewModel, event) {
         var vv = a;
     }
 }
