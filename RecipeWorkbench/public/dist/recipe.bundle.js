@@ -13,6 +13,14 @@ webpackJsonpViewModels([2],[
             url: "recipes",
             name: "Filter recipes"
         },
+        {
+            url: "ingredients",
+            name: "Filter Ingredients"
+        },
+        {
+            url: "compounds",
+            name: "Filter compounds"
+        }
         /*{
             url: "statistics",
             name: "Statistics"
@@ -99,7 +107,9 @@ module.exports = exports = RestService;
 /* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -169,4 +179,4 @@ class RecipeRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservic
 
 
 /***/ })
-],[5]);
+],[7]);

@@ -12,7 +12,8 @@
     <% include ../partials/footer %>
 
     <script type="text/javascript">
-        ko.applyBindings(new ViewModels.HomePageViewModel());
+        var pageVM = new ViewModels.HomePageViewModel();
+        ko.applyBindings(pageVM);
     </script>
 </body>
 </html>

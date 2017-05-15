@@ -1,6 +1,7 @@
 var ViewModels =
-webpackJsonpViewModels([4],[
-/* 0 */
+webpackJsonpViewModels([6],{
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 ﻿class BasePageViewModel {
@@ -13,6 +14,14 @@ webpackJsonpViewModels([4],[
             url: "recipes",
             name: "Filter recipes"
         },
+        {
+            url: "ingredients",
+            name: "Filter Ingredients"
+        },
+        {
+            url: "compounds",
+            name: "Filter compounds"
+        }
         /*{
             url: "statistics",
             name: "Statistics"
@@ -28,10 +37,8 @@ module.exports = exports = BasePageViewModel;
 
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+
+/***/ 5:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54,4 +61,5 @@ class HomePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___defaul
 
 
 /***/ })
-],[4]);
+
+},[5]);

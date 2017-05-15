@@ -8,6 +8,14 @@
             url: "recipes",
             name: "Filter recipes"
         },
+        {
+            url: "ingredients",
+            name: "Filter Ingredients"
+        },
+        {
+            url: "compounds",
+            name: "Filter compounds"
+        }
         /*{
             url: "statistics",
             name: "Statistics"

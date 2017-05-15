@@ -1,5 +1,5 @@
 var ViewModels =
-webpackJsonpViewModels([3],[
+webpackJsonpViewModels([5],[
 /* 0 */,
 /* 1 */,
 /* 2 */
@@ -8,7 +8,8 @@ webpackJsonpViewModels([3],[
 module.exports = knockout;
 
 /***/ }),
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21,4 +22,4 @@ class ContributionPageViewModel {
 }
 
 /***/ })
-],[3]);
+],[4]);

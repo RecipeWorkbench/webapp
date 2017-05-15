@@ -26,6 +26,16 @@ app.get('/recipes', function (req, res) {
     res.render('pages/recipes', { api: process.env.BACKEND });
 });
 
+// Ingredients page.
+app.get('/ingredients', function (req, res) {
+    res.render('pages/ingredients', { api: process.env.BACKEND });
+});
+
+// Compounds page.
+app.get('/compounds', function (req, res) {
+    res.render('pages/compounds', { api: process.env.BACKEND });
+});
+
 // Recipe page.
 app.get('/recipe/:id', function (req, res) {
     res.render('pages/recipe', { api: process.env.BACKEND, recipe: req.params.id });

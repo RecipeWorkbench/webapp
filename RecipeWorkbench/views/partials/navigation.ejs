@@ -3,7 +3,7 @@
         <a class="logo" data-bind="attr: { href: $data.url, title: $data.name }"><img src="/static/images/logo.png" /></a>
     </template>
     <template id="link-template">
-        <a class="link" data-bind="attr: { href: $data.url, title: $data.name }, text: $data.name"></a>
+        <a class="link" data-bind="attr: { href: $data.url, title: $data.name }, text: $data.name, css: { 'underline': $data.url === pageVM.currentPage() }"></a>
     </template>
 
     <div class="container nopadding">

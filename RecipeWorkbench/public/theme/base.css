@@ -154,10 +154,25 @@ nav a.link {
     padding: 14px 15px;
 }
 
+.underline {
+    border-bottom: 2px solid #ffb500;
+}
+
+.selected {
+    background-color: #2196f3;
+    color: white;
+}
+
+.list-item-level-one {
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+}
+
+.list-item-container {
+    list-style-type: none;
+}
 /*nav {
     font-family: Arial;
 }*/
-
 #navHomeNav, #sidebar-wrapper {
     font-size: 14px;
 }

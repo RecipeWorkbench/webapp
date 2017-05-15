@@ -6,6 +6,8 @@ module.exports = {
         home: "./pages/home/index.js",
         contribution: "./pages/contribution/index.js",
         recipes: "./pages/recipes/index.js",
+        ingredients: "./pages/ingredients/index.js",
+        compounds: "./pages/compounds/index.js",
         recipe: "./pages/recipe/index.js",
         transform: "./pages/transform/index.js"
     },

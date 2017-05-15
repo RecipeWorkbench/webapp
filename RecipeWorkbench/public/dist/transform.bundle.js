@@ -1,6 +1,7 @@
 var ViewModels =
-webpackJsonpViewModels([0],[
-/* 0 */
+webpackJsonpViewModels([0],{
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 ﻿class BasePageViewModel {
@@ -13,6 +14,14 @@ webpackJsonpViewModels([0],[
             url: "recipes",
             name: "Filter recipes"
         },
+        {
+            url: "ingredients",
+            name: "Filter Ingredients"
+        },
+        {
+            url: "compounds",
+            name: "Filter compounds"
+        }
         /*{
             url: "statistics",
             name: "Statistics"
@@ -28,7 +37,8 @@ module.exports = exports = BasePageViewModel;
 
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports) {
 
 ﻿const HTTP_METHOD = {
@@ -96,12 +106,8 @@ module.exports = exports = RestService;
 
 
 /***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+
+/***/ 9:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -166,4 +172,5 @@ class RecipeRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservic
 
 
 /***/ })
-],[7]);
+
+},[9]);

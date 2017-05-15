@@ -1,7 +1,6 @@
 var ViewModels =
-webpackJsonpViewModels([1],{
-
-/***/ 0:
+webpackJsonpViewModels([4],[
+/* 0 */
 /***/ (function(module, exports) {
 
 ﻿class BasePageViewModel {
@@ -37,8 +36,7 @@ module.exports = exports = BasePageViewModel;
 
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports) {
 
 ﻿const HTTP_METHOD = {
@@ -106,8 +104,8 @@ module.exports = exports = RestService;
 
 
 /***/ }),
-
-/***/ 8:
+/* 2 */,
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -201,11 +199,11 @@ function triggerGetRecipesFromRecipeFilter() {
     this.services.getRecipesCount(params).then(countFetched(this), countFetchedError(this));
 }
 
-class RecipesPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
+class CompoundsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
     constructor() {
         super();
-        this.currentPage("recipes");
-        this.pageTitle("Recipes");
+        this.currentPage("compounds");
+        this.pageTitle("Compounds");
         this.contentTemplate("no-data-template");
 
         this.ingredients = ko.observableArray([]);
@@ -239,7 +237,7 @@ class RecipesPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___def
         var vv = a;
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["RecipesPageViewModel"] = RecipesPageViewModel;
+/* harmony export (immutable) */ __webpack_exports__["CompoundsPageViewModel"] = CompoundsPageViewModel;
 
 
 class RecipesRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a {
@@ -286,5 +284,4 @@ class RecipesRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservi
 
 
 /***/ })
-
-},[8]);
+],[3]);

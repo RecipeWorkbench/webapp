@@ -32,8 +32,10 @@
     <Compile Include="pages\base.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="pages\compounds\index.js" />
     <Compile Include="pages\contribution\index.js" />
     <Compile Include="pages\home\index.js" />
+    <Compile Include="pages\ingredients\index.js" />
     <Compile Include="pages\recipes\index.js">
       <SubType>Code</SubType>
     </Compile>
@@ -56,10 +58,12 @@
     <Content Include="public\theme\base.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\pages\compounds.ejs" />
     <Content Include="views\pages\contribution.ejs" />
     <Content Include="views\pages\home.ejs">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\pages\ingredients.ejs" />
     <Content Include="views\pages\recipe.ejs" />
     <Content Include="views\pages\recipes.ejs" />
     <Content Include="views\pages\transform.ejs" />
@@ -71,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="components\" />
+    <Folder Include="pages\compounds\" />
+    <Folder Include="pages\ingredients\" />
     <Folder Include="public\images\" />
     <Folder Include="services\" />
     <Folder Include="pages\transform\" />
