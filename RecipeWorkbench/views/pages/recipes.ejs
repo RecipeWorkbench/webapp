@@ -31,26 +31,26 @@
     </template>
     
     <main>
-        <div class="container">
-            <header class="content">
-                <div id="recipe-filter">
-                    <input type="text" data-bind="value: $data.recipeFilter" placeholder="Search recipes starting with..." />
-                    <!--<input type="text" list="ingredients" data-bind="value: $data.ingredientFilter" />
-                    <datalist id="ingredients" data-bind="foreach: $data.ingredients"></datalist>-->
-                    <button class="btn" data-bind="enable: $data.previousPageButtonEnabled, click: onPreviousPage,
-                        css: { 'btn-primary': $data.previousPageButtonEnabled }">
-                        &#8249;
-                    </button>
-                    <select data-bind="options: $data.pager,
-                        value: $data.selectedPage,
-                        optionsText: 'text'"></select>
-                    <button class="btn" data-bind="enable: $data.nextPageButtonEnabled, click: onNextPage,
-                        css: { 'btn-primary': $data.nextPageButtonEnabled }">
-                        &#8250;
-                    </button>
-                </div>
-            </header>
+        <header class="content">
+            <div id="recipe-filter">
+                <input type="text" data-bind="value: $data.recipeFilter" placeholder="Search recipes starting with..." />
+                <!--<input type="text" list="ingredients" data-bind="value: $data.ingredientFilter" />
+                <datalist id="ingredients" data-bind="foreach: $data.ingredients"></datalist>-->
+                <button class="btn" data-bind="enable: $data.previousPageButtonEnabled, click: onPreviousPage,
+                    css: { 'btn-primary': $data.previousPageButtonEnabled }">
+                    &#8249;
+                </button>
+                <select data-bind="options: $data.pager,
+                    value: $data.selectedPage,
+                    optionsText: 'text'"></select>
+                <button class="btn" data-bind="enable: $data.nextPageButtonEnabled, click: onNextPage,
+                    css: { 'btn-primary': $data.nextPageButtonEnabled }">
+                    &#8250;
+                </button>
+            </div>
+        </header>
 
+        <div class="container">
             <section id="content" data-bind="template: { name: contentTemplate }"></section>
         </div>
     </main>

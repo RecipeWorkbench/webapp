@@ -169,10 +169,29 @@ nav a.link {
 
 .list-item-container {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, Verdana, Sans-Serif;
+    text-transform: capitalize;
 }
+
+.list-item-header {
+    font-size: 22px;
+    padding: 6px 10px;
+}
+
+.list-item-header p {
+    margin: 0;
+}
+
+.list-item-content {
+    font-size: 16px;
+}
+
 /*nav {
     font-family: Arial;
 }*/
+
 #navHomeNav, #sidebar-wrapper {
     font-size: 14px;
 }
@@ -338,15 +357,3 @@ p.information {
     border-radius: 3px;
     user-select: none;
 }
-
-/*{
-    -webkit-box-sizing: #4b4f56;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}*/
-
-/*{
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}*/
