@@ -9,32 +9,33 @@
     <% include ../partials/navigation %>
     <% include ../partials/templates %>
 
-    <template id="recipes-template">
-        <div id="recipes-list">
-            <ul class="recipes" data-bind="foreach: recipes">
-                <li class="material-card">
-                    <div class="material-card-content">
-                        <b data-bind="text: $data.name"></b>
-                        <b data-bind="text: $data.cuisine.name"></b>
-                    </div>
-                    <div class="material-card-action">
-                        <div class="material-card-button">
-                            <a data-bind="attr: { href: 'transform-recipe/' + $data.id, title: 'Transform' }, text: 'Transform'"></a>
+    <template id="ingredients-template">
+        <div class="material-card">
+            <div id="ingredients-list">
+                <ul class="list-item-container" data-bind="foreach: $data.ingredients()">
+                    <li class="list-item-level-one" data-bind="click: pageVM.onIngredientSelection">
+                        <div class="list-item-header" data-bind="css: { 'selected': $data.id === pageVM.expandedIngredient() }">
+                            <p data-bind="text: $data.name"></p>
                         </div>
-                        <div class="material-card-button">
-                            <a data-bind="attr: { href: 'recipe/' + $data.id, title: 'View' }, text: 'View'"></a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+                        <!--<div class="list-item-content" data-bind="css: { 'slideup': $data.id !== pageVM.expandedIngredient(),
+                         'slidedown': $data.id === pageVM.expandedIngredient() }">
+                        <ul class="list-item-container list-padding" data-bind="foreach: $data.compounds">
+                            <li class="list-item-level-two">
+                                <p data-bind="text: $data.name"></p>
+                            </li>
+                        </ul>
+                    </div>-->
+                    </li>
+                </ul>
+            </div>
         </div>
-    </template>
+</template>
 
     <main>
         <div class="container">
             <header class="content">
                 <div id="recipe-filter">
-                    <input type="text" data-bind="value: $data.recipeFilter" placeholder="Search recipes starting with..." />
+                    <input type="text" data-bind="value: $data.ingredientFilter" placeholder="Search ingredients starting with..." />
                     <!--<input type="text" list="ingredients" data-bind="value: $data.ingredientFilter" />
                     <datalist id="ingredients" data-bind="foreach: $data.ingredients"></datalist>-->
                     <button class="btn" data-bind="enable: $data.previousPageButtonEnabled, click: onPreviousPage,

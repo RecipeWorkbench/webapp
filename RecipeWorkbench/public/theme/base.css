@@ -163,6 +163,20 @@ nav a.link {
     color: white;
 }
 
+#recipe-header {
+    margin: 0;
+    padding: 6px;
+    background-color: #2196f3;
+    color: white;
+    font-family: Helvetica, Verdana, Sans-Serif;
+    font-size: 22px;
+}
+
+#recipe-header p {
+    margin: 0;
+    text-align: center;
+}
+
 .list-item-level-one {
     box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
 }
@@ -176,7 +190,7 @@ nav a.link {
 }
 
 .list-item-header {
-    font-size: 22px;
+    font-size: 16px;
     padding: 6px 10px;
 }
 
@@ -185,7 +199,11 @@ nav a.link {
 }
 
 .list-item-content {
-    font-size: 16px;
+    font-size: 12px;
+}
+
+.list-padding {
+    padding: 6px;
 }
 
 /*nav {

@@ -154,11 +154,11 @@ function nextPageButtonEnabled() {
 }
 
 function recipesFetched(viewModel) {
-    return function (recipes) {
-        viewModel.recipes(JSON.parse(recipes));
+    return function (compounds) {
+        viewModel.compounds(JSON.parse(compounds));
 
-        if (viewModel.recipes.peek().length > 0) {
-            viewModel.contentTemplate("recipes-template");
+        if (viewModel.compounds.peek().length > 0) {
+            viewModel.contentTemplate("compounds-template");
         }
         else {
             viewModel.contentTemplate("no-data-template");
@@ -187,7 +187,7 @@ function countFetchedError(viewModel) {
 
 function triggerGetRecipesFromRecipeFilter() {
     var params = {
-        name: this.recipeFilter(),
+        name: this.compoundFilter(),
         ingredient: 0,
         cuisine: 0,
         skip: this.skip(),
@@ -206,10 +206,9 @@ class CompoundsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___d
         this.pageTitle("Compounds");
         this.contentTemplate("no-data-template");
 
-        this.ingredients = ko.observableArray([]);
-        this.ingredientFilter = ko.observable("");
-        this.recipes = ko.observableArray([]);
-        this.recipeFilter = ko.observable("");
+        this.compounds = ko.observableArray([]);
+        this.compoundFilter = ko.observable("");
+        this.expandedCompound = ko.observable(0);
         this.take = ko.observable(20);
         this.skip = ko.observable(0);
         this.count = ko.observable(0);
@@ -227,6 +226,15 @@ class CompoundsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___d
                 timeout: 400
             }
         });
+    }
+
+    onCompoundSelection(compound, event) {
+        if (compound.id === pageVM.expandedCompound()) {
+            pageVM.expandedCompound(0);
+        }
+        else {
+            pageVM.expandedCompound(compound.id);
+        }
     }
 
     onNextPage(viewModel, event) {

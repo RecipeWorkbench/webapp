@@ -12,22 +12,31 @@
 
     <template id="recipe-content-template">
         <div class="material-card">
+            <header id="recipe-header" data-bind="if: $data.recipe() !== null">
+                <p><span data-bind="text: $data.recipe().name"></span></p>
+            </header>
             <section id="recipe-content" data-bind="if: $data.recipe() !== null">
-                <ul class="list-item-container" data-bind="foreach: $data.recipe().ingredients">
-                    <li class="list-item-level-one" data-bind="click: pageVM.onIngredientSelection">
-                        <div class="list-item-header" data-bind="css: { 'selected': $data.id === pageVM.expandedIngredient() }">
-                            <p data-bind="text: $data.name"></p>
-                        </div>
-                        <div class="list-item-content" data-bind="css: { 'slideup': $data.id !== pageVM.expandedIngredient(),
+                <div>
+                    <p><span data-bind="text: $data.recipe().cuisine.name"></span></p>
+                </div>
+                <div>
+                    <p>Ingredients</p>
+                    <ul class="list-item-container" data-bind="foreach: $data.recipe().ingredients">
+                        <li class="list-item-level-one" data-bind="click: pageVM.onIngredientSelection">
+                            <div class="list-item-header" data-bind="css: { 'selected': $data.id === pageVM.expandedIngredient() }">
+                                <p data-bind="text: $data.name"></p>
+                            </div>
+                            <div class="list-item-content" data-bind="css: { 'slideup': $data.id !== pageVM.expandedIngredient(),
                          'slidedown': $data.id === pageVM.expandedIngredient() }">
-                            <ul class="list-item-container" data-bind="foreach: $data.compounds">
-                                <li class="list-item-level-two">
-                                    <p data-bind="text: $data.name"></p>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
+                                <ul class="list-item-container list-padding" data-bind="foreach: $data.compounds">
+                                    <li class="list-item-level-two">
+                                        <p data-bind="text: $data.name"></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </section>
         </div>
     </template>

@@ -8,12 +8,36 @@
 </head>
 <body>
     <% include ../partials/navigation %>
+    <% include ../partials/templates %>
 
-    <ul data-bind="foreach: recipes">
-        <li class="card material-card">
-            The current item is: <b data-bind="text: $data.name"></b>
-        </li>
-    </ul>
+    <template id="recipe-content-template">
+        <div class="material-card">
+            <header id="recipe-header" data-bind="if: $data.recipe() !== null">
+                <p><span data-bind="text: $data.recipe().name"></span></p>
+            </header>
+            <section id="recipe-content" data-bind="if: $data.recipe() !== null">
+                <div>
+                    <p><span data-bind="text: $data.recipe().cuisine.name"></span></p>
+                </div>
+                <div>
+                    <p>Ingredients</p>
+                    <ul class="list-item-container" data-bind="foreach: $data.recipe().ingredients">
+                        <li class="list-item-level-one" data-bind="click: pageVM.onIngredientSelection">
+                            <div class="list-item-header" data-bind="css: { 'selected': $data.id === pageVM.expandedIngredient() }">
+                                <p data-bind="text: $data.name"></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <main>
+        <div class="container">
+            <section id="content" data-bind="template: { name: contentTemplate }"></section>
+        </div>
+    </main>
 
     <% include ../partials/footer %>
 

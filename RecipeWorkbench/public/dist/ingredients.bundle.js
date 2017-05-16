@@ -157,11 +157,11 @@ function nextPageButtonEnabled() {
 }
 
 function recipesFetched(viewModel) {
-    return function (recipes) {
-        viewModel.recipes(JSON.parse(recipes));
+    return function (ingredients) {
+        viewModel.ingredients(JSON.parse(ingredients));
 
-        if (viewModel.recipes.peek().length > 0) {
-            viewModel.contentTemplate("recipes-template");
+        if (viewModel.ingredients.peek().length > 0) {
+            viewModel.contentTemplate("ingredients-template");
         }
         else {
             viewModel.contentTemplate("no-data-template");
@@ -190,7 +190,7 @@ function countFetchedError(viewModel) {
 
 function triggerGetRecipesFromRecipeFilter() {
     var params = {
-        name: this.recipeFilter(),
+        name: this.ingredientFilter(),
         ingredient: 0,
         cuisine: 0,
         skip: this.skip(),
@@ -211,8 +211,7 @@ class IngredientsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base__
 
         this.ingredients = ko.observableArray([]);
         this.ingredientFilter = ko.observable("");
-        this.recipes = ko.observableArray([]);
-        this.recipeFilter = ko.observable("");
+        this.expandedIngredient = ko.observable(0);
         this.take = ko.observable(20);
         this.skip = ko.observable(0);
         this.count = ko.observable(0);
@@ -230,6 +229,15 @@ class IngredientsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base__
                 timeout: 400
             }
         });
+    }
+
+    onIngredientSelection(ingredient, event) {
+        if (ingredient.id === pageVM.expandedIngredient()) {
+            pageVM.expandedIngredient(0);
+        }
+        else {
+            pageVM.expandedIngredient(ingredient.id);
+        }
     }
 
     onNextPage(viewModel, event) {
