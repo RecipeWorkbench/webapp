@@ -69,11 +69,35 @@ function countFetchedError(viewModel) {
     };
 }
 
+function ingredientsFetched(viewModel) {
+    return function (ingredients) {
+        viewModel.ingredients(JSON.parse(ingredients));
+    };
+}
+
+function ingredientsFetchedError(viewModel) {
+    return function (error) {
+        console.log(error.statusText);
+    };
+}
+
+function cuisinesFetched(viewModel) {
+    return function (cuisines) {
+        viewModel.cuisines(JSON.parse(cuisines));
+    };
+}
+
+function cuisinesFetchedError(viewModel) {
+    return function (error) {
+        console.log(error.statusText);
+    };
+}
+
 function triggerGetRecipesFromRecipeFilter() {
     var params = {
         name: this.recipeFilter(),
-        ingredient: 0,
-        cuisine: 0,
+        ingredient: this.ingredientFilter() ? this.ingredientFilter().id : 0,
+        cuisine: this.cuisineFilter() ? this.cuisineFilter().id : 0,
         skip: this.skip(),
         take: this.take()
     };
@@ -86,12 +110,14 @@ function triggerGetRecipesFromRecipeFilter() {
 export class RecipesPageViewModel extends BasePageViewModel {
     constructor() {
         super();
-        this.currentPage("recipes");
+        this.currentPage("/recipes");
         this.pageTitle("Recipes");
         this.contentTemplate("no-data-template");
 
         this.ingredients = ko.observableArray([]);
-        this.ingredientFilter = ko.observable("");
+        this.ingredientFilter = ko.observable(null);
+        this.cuisines = ko.observableArray([]);
+        this.cuisineFilter = ko.observable(null);
         this.recipes = ko.observableArray([]);
         this.recipeFilter = ko.observable("");
         this.take = ko.observable(20);
@@ -111,6 +137,9 @@ export class RecipesPageViewModel extends BasePageViewModel {
                 timeout: 400
             }
         });
+
+        this.services.getIngredients().then(ingredientsFetched(this), ingredientsFetchedError(this));
+        this.services.getCuisines().then(cuisinesFetched(this), cuisinesFetchedError(this));
     }
 
     onNextPage(viewModel, event) {
@@ -156,10 +185,17 @@ class RecipesRestService extends RestService {
         });
     }
 
-    getIngredientsStartingWith(name, options) {
+    getIngredients() {
         return this.request({
             method: RestService.method.GET,
-            url: this.hostUrl + "ingredients/startswith/" + name
+            url: this.hostUrl + "ingredient"
+        });
+    }
+
+    getCuisines() {
+        return this.request({
+            method: RestService.method.GET,
+            url: this.hostUrl + "cuisine"
         });
     }
 }

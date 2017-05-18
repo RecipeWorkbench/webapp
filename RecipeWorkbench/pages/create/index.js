@@ -21,7 +21,7 @@ function recipeFetchedError(viewModel) {
 export class RecipePageViewModel extends BasePageViewModel {
     constructor(id) {
         super();
-        this.currentPage("/recipe");
+        this.currentPage("create-recipe");
         this.contentTemplate("loader-template");
         this.recipe = ko.observable(null);
         this.expandedIngredient = ko.observable(0);

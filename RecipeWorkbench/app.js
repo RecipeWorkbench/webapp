@@ -21,6 +21,11 @@ app.get('/home', function (req, res) {
     res.render('pages/home', { api: process.env.BACKEND });
 });
 
+// Create recipe page.
+app.get('/create-recipe', function (req, res) {
+    res.render('pages/create', { api: process.env.BACKEND });
+});
+
 // Recipes page.
 app.get('/recipes', function (req, res) {
     res.render('pages/recipes', { api: process.env.BACKEND });
@@ -46,10 +51,6 @@ app.get('/transform-recipe/:id', function (req, res) {
     res.render('pages/transform', { api: process.env.BACKEND, recipe: req.params.id });
 });
 
-// Contribution page.
-app.get('/contribution', function (req, res) {
-    res.render('pages/contribution', { api: process.env.BACKEND });
-});
 
 app.listen(port);
 console.log("Listening on port: " + port);

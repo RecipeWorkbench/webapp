@@ -86,7 +86,7 @@ function triggerGetRecipesFromRecipeFilter() {
 export class CompoundsPageViewModel extends BasePageViewModel {
     constructor() {
         super();
-        this.currentPage("compounds");
+        this.currentPage("/compounds");
         this.pageTitle("Compounds");
         this.contentTemplate("no-data-template");
 

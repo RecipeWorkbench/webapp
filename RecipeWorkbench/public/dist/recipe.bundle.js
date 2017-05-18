@@ -6,23 +6,27 @@ webpackJsonpViewModels([2],[
 ﻿class BasePageViewModel {
     constructor() {
         this.pages = ko.observableArray([{
-            url: "home",
+            url: "/home",
             name: "Home"
         },
         {
-            url: "recipes",
+            url: "/recipes",
             name: "Filter recipes"
         },
         {
-            url: "ingredients",
-            name: "Filter Ingredients"
+            url: "/ingredients",
+            name: "Filter ingredients"
         },
-        {
-            url: "compounds",
+        /*{
+            url: "/compounds",
             name: "Filter compounds"
+        }*/
+        {
+            url: "/create-recipe",
+            name: "Create recipe"
         }
         /*{
-            url: "statistics",
+            url: "/statistics",
             name: "Statistics"
         }*/]);
 
@@ -108,8 +112,7 @@ module.exports = exports = RestService;
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */,
-/* 7 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -141,7 +144,7 @@ function recipeFetchedError(viewModel) {
 class RecipePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
     constructor(id) {
         super();
-        this.currentPage("recipe");
+        this.currentPage("/recipe");
         this.contentTemplate("loader-template");
         this.recipe = ko.observable(null);
         this.expandedIngredient = ko.observable(0);
@@ -179,4 +182,4 @@ class RecipeRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservic
 
 
 /***/ })
-],[7]);
+],[6]);

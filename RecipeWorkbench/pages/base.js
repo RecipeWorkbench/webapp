@@ -1,23 +1,27 @@
 ﻿class BasePageViewModel {
     constructor() {
         this.pages = ko.observableArray([{
-            url: "home",
+            url: "/home",
             name: "Home"
         },
         {
-            url: "recipes",
+            url: "/recipes",
             name: "Filter recipes"
         },
         {
-            url: "ingredients",
-            name: "Filter Ingredients"
+            url: "/ingredients",
+            name: "Filter ingredients"
         },
-        {
-            url: "compounds",
+        /*{
+            url: "/compounds",
             name: "Filter compounds"
+        }*/
+        {
+            url: "/create-recipe",
+            name: "Create recipe"
         }
         /*{
-            url: "statistics",
+            url: "/statistics",
             name: "Statistics"
         }*/]);
 

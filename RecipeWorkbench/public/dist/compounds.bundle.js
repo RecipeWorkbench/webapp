@@ -1,28 +1,32 @@
 var ViewModels =
-webpackJsonpViewModels([4],[
+webpackJsonpViewModels([5],[
 /* 0 */
 /***/ (function(module, exports) {
 
 ﻿class BasePageViewModel {
     constructor() {
         this.pages = ko.observableArray([{
-            url: "home",
+            url: "/home",
             name: "Home"
         },
         {
-            url: "recipes",
+            url: "/recipes",
             name: "Filter recipes"
         },
         {
-            url: "ingredients",
-            name: "Filter Ingredients"
+            url: "/ingredients",
+            name: "Filter ingredients"
         },
-        {
-            url: "compounds",
+        /*{
+            url: "/compounds",
             name: "Filter compounds"
+        }*/
+        {
+            url: "/create-recipe",
+            name: "Create recipe"
         }
         /*{
-            url: "statistics",
+            url: "/statistics",
             name: "Statistics"
         }*/]);
 
@@ -104,8 +108,7 @@ module.exports = exports = RestService;
 
 
 /***/ }),
-/* 2 */,
-/* 3 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -202,7 +205,7 @@ function triggerGetRecipesFromRecipeFilter() {
 class CompoundsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
     constructor() {
         super();
-        this.currentPage("compounds");
+        this.currentPage("/compounds");
         this.pageTitle("Compounds");
         this.contentTemplate("no-data-template");
 
@@ -292,4 +295,4 @@ class RecipesRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservi
 
 
 /***/ })
-],[3]);
+],[2]);

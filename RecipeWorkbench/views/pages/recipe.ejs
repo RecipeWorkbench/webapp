@@ -15,16 +15,27 @@
             <header id="recipe-header" data-bind="if: $data.recipe() !== null">
                 <p><span data-bind="text: $data.recipe().name"></span></p>
             </header>
-            <section id="recipe-content" data-bind="if: $data.recipe() !== null">
-                <div>
-                    <p><span data-bind="text: $data.recipe().cuisine.name"></span></p>
+            <section id="recipe-content" class="content-height" data-bind="if: $data.recipe() !== null">
+                <div class="half-width">
+                    <p>
+                        <span class="bold">Cuisine: </span>
+                        <span data-bind="text: $data.recipe().cuisine.name"></span>
+                    </p>
+                    <div class="large-recipe-image">
+                        <img />
+                    </div>
                 </div>
-                <div>
-                    <p>Ingredients</p>
+                <div class="half-width">
+                    <p class="bold">Ingredients:</p>
                     <ul class="list-item-container" data-bind="foreach: $data.recipe().ingredients">
                         <li class="list-item-level-one" data-bind="click: pageVM.onIngredientSelection">
                             <div class="list-item-header" data-bind="css: { 'selected': $data.id === pageVM.expandedIngredient() }">
-                                <p data-bind="text: $data.name"></p>
+                                <p>
+                                    <span data-bind="css: { 'opened-icon': $data.id === pageVM.expandedIngredient(),
+                                          'open-icon': $data.id !== pageVM.expandedIngredient() }"></span>
+                                    <span class="width160px bold" data-bind="text: $data.name"></span>
+                                    <span data-bind="text: '(' + $data.category.name + ')'"></span>
+                                </p>
                             </div>
                             <div class="list-item-content" data-bind="css: { 'slideup': $data.id !== pageVM.expandedIngredient(),
                          'slidedown': $data.id === pageVM.expandedIngredient() }">

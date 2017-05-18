@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         home: "./pages/home/index.js",
-        contribution: "./pages/contribution/index.js",
+        create: "./pages/create/index.js",
         recipes: "./pages/recipes/index.js",
         ingredients: "./pages/ingredients/index.js",
         compounds: "./pages/compounds/index.js",

@@ -1,7 +1,6 @@
 var ViewModels =
-webpackJsonpViewModels([0],{
-
-/***/ 0:
+webpackJsonpViewModels([4],[
+/* 0 */
 /***/ (function(module, exports) {
 
 ﻿class BasePageViewModel {
@@ -41,8 +40,7 @@ module.exports = exports = BasePageViewModel;
 
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports) {
 
 ﻿const HTTP_METHOD = {
@@ -110,8 +108,8 @@ module.exports = exports = RestService;
 
 
 /***/ }),
-
-/***/ 8:
+/* 2 */,
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -124,40 +122,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 function recipeFetched(viewModel) {
-    return function (recipes) {
-        viewModel.recipes(JSON.parse(recipes));
-
-        //if (viewModel.recipes.peek().length > 0) {
-        //    viewModel.contentTemplate("recipes-template");
-        //}
-        //else {
-        //    viewModel.contentTemplate("no-data-template");
-        //}
+    return function (recipe) {
+        viewModel.recipe(JSON.parse(recipe));
+        viewModel.expandedIngredient(0);
+        viewModel.contentTemplate("recipe-content-template");
     };
 }
 
 function recipeFetchedError(viewModel) {
     return function (error) {
-        //viewModel.contentTemplate("no-data-template");
+        viewModel.recipe(null);
+        viewModel.expandedIngredient(0);
+        viewModel.contentTemplate("no-data-template");
         console.log(error.statusText);
     };
 }
 
-class TransformRecipePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
+class RecipePageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
     constructor(id) {
         super();
-        this.currentPage("transform-recipe");
-        this.pageTitle("Recipes");
-        //this.contentTemplate("no-data-template");
-        this.recipes = ko.observableArray([]);
-        console.log(id);
+        this.currentPage("create-recipe");
+        this.contentTemplate("loader-template");
+        this.recipe = ko.observable(null);
+        this.expandedIngredient = ko.observable(0);
 
         this.id = ko.observable(parseInt(id));
         this.services = new RecipeRestService();
         this.services.getRecipe({ id: this.id.peek() }).then(recipeFetched(this), recipeFetchedError(this));
     }
+
+    onIngredientSelection(ingredient, event) {
+        if (ingredient.id === pageVM.expandedIngredient()) {
+            pageVM.expandedIngredient(0);
+        }
+        else {
+            pageVM.expandedIngredient(ingredient.id);
+        }
+    }
 }
-/* harmony export (immutable) */ __webpack_exports__["TransformRecipePageViewModel"] = TransformRecipePageViewModel;
+/* harmony export (immutable) */ __webpack_exports__["RecipePageViewModel"] = RecipePageViewModel;
 
 
 class RecipeRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a {
@@ -176,5 +179,4 @@ class RecipeRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservic
 
 
 /***/ })
-
-},[8]);
+],[3]);

@@ -1,29 +1,32 @@
 var ViewModels =
-webpackJsonpViewModels([1],{
-
-/***/ 0:
+webpackJsonpViewModels([1],[
+/* 0 */
 /***/ (function(module, exports) {
 
 ﻿class BasePageViewModel {
     constructor() {
         this.pages = ko.observableArray([{
-            url: "home",
+            url: "/home",
             name: "Home"
         },
         {
-            url: "recipes",
+            url: "/recipes",
             name: "Filter recipes"
         },
         {
-            url: "ingredients",
-            name: "Filter Ingredients"
+            url: "/ingredients",
+            name: "Filter ingredients"
         },
-        {
-            url: "compounds",
+        /*{
+            url: "/compounds",
             name: "Filter compounds"
+        }*/
+        {
+            url: "/create-recipe",
+            name: "Create recipe"
         }
         /*{
-            url: "statistics",
+            url: "/statistics",
             name: "Statistics"
         }*/]);
 
@@ -37,8 +40,7 @@ module.exports = exports = BasePageViewModel;
 
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports) {
 
 ﻿const HTTP_METHOD = {
@@ -106,8 +108,12 @@ module.exports = exports = RestService;
 
 
 /***/ }),
-
-/***/ 8:
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -187,11 +193,35 @@ function countFetchedError(viewModel) {
     };
 }
 
+function ingredientsFetched(viewModel) {
+    return function (ingredients) {
+        viewModel.ingredients(JSON.parse(ingredients));
+    };
+}
+
+function ingredientsFetchedError(viewModel) {
+    return function (error) {
+        console.log(error.statusText);
+    };
+}
+
+function cuisinesFetched(viewModel) {
+    return function (cuisines) {
+        viewModel.cuisines(JSON.parse(cuisines));
+    };
+}
+
+function cuisinesFetchedError(viewModel) {
+    return function (error) {
+        console.log(error.statusText);
+    };
+}
+
 function triggerGetRecipesFromRecipeFilter() {
     var params = {
         name: this.recipeFilter(),
-        ingredient: 0,
-        cuisine: 0,
+        ingredient: this.ingredientFilter() ? this.ingredientFilter().id : 0,
+        cuisine: this.cuisineFilter() ? this.cuisineFilter().id : 0,
         skip: this.skip(),
         take: this.take()
     };
@@ -204,12 +234,14 @@ function triggerGetRecipesFromRecipeFilter() {
 class RecipesPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
     constructor() {
         super();
-        this.currentPage("recipes");
+        this.currentPage("/recipes");
         this.pageTitle("Recipes");
         this.contentTemplate("no-data-template");
 
         this.ingredients = ko.observableArray([]);
-        this.ingredientFilter = ko.observable("");
+        this.ingredientFilter = ko.observable(null);
+        this.cuisines = ko.observableArray([]);
+        this.cuisineFilter = ko.observable(null);
         this.recipes = ko.observableArray([]);
         this.recipeFilter = ko.observable("");
         this.take = ko.observable(20);
@@ -229,6 +261,9 @@ class RecipesPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___def
                 timeout: 400
             }
         });
+
+        this.services.getIngredients().then(ingredientsFetched(this), ingredientsFetchedError(this));
+        this.services.getCuisines().then(cuisinesFetched(this), cuisinesFetchedError(this));
     }
 
     onNextPage(viewModel, event) {
@@ -276,15 +311,21 @@ class RecipesRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservi
         });
     }
 
-    getIngredientsStartingWith(name, options) {
+    getIngredients() {
         return this.request({
             method: __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a.method.GET,
-            url: this.hostUrl + "ingredients/startswith/" + name
+            url: this.hostUrl + "ingredient"
+        });
+    }
+
+    getCuisines() {
+        return this.request({
+            method: __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a.method.GET,
+            url: this.hostUrl + "cuisine"
         });
     }
 }
 
 
 /***/ })
-
-},[8]);
+],[7]);

@@ -6,23 +6,27 @@ webpackJsonpViewModels([3],[
 ﻿class BasePageViewModel {
     constructor() {
         this.pages = ko.observableArray([{
-            url: "home",
+            url: "/home",
             name: "Home"
         },
         {
-            url: "recipes",
+            url: "/recipes",
             name: "Filter recipes"
         },
         {
-            url: "ingredients",
-            name: "Filter Ingredients"
+            url: "/ingredients",
+            name: "Filter ingredients"
         },
-        {
-            url: "compounds",
+        /*{
+            url: "/compounds",
             name: "Filter compounds"
+        }*/
+        {
+            url: "/create-recipe",
+            name: "Create recipe"
         }
         /*{
-            url: "statistics",
+            url: "/statistics",
             name: "Statistics"
         }*/]);
 
@@ -107,8 +111,7 @@ module.exports = exports = RestService;
 /* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */,
-/* 6 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -156,7 +159,7 @@ function nextPageButtonEnabled() {
     return this.selectedPage().page !== (this.pagerLength() - 1);
 }
 
-function recipesFetched(viewModel) {
+function ingredientsFetched(viewModel) {
     return function (ingredients) {
         viewModel.ingredients(JSON.parse(ingredients));
 
@@ -169,7 +172,7 @@ function recipesFetched(viewModel) {
     };
 }
 
-function recipesFetchedError(viewModel) {
+function ingredientsFetchedError(viewModel) {
     return function (error) {
         viewModel.contentTemplate("no-data-template");
         console.log(error.statusText);
@@ -188,24 +191,23 @@ function countFetchedError(viewModel) {
     };
 }
 
-function triggerGetRecipesFromRecipeFilter() {
+function triggerGetIngredientsFromIngredientFilter() {
     var params = {
         name: this.ingredientFilter(),
-        ingredient: 0,
-        cuisine: 0,
+        compound: 0,
         skip: this.skip(),
         take: this.take()
     };
 
     this.contentTemplate("loader-template");
-    this.services.getRecipes(params).then(recipesFetched(this), recipesFetchedError(this));
-    this.services.getRecipesCount(params).then(countFetched(this), countFetchedError(this));
+    this.services.getIngredients(params).then(ingredientsFetched(this), ingredientsFetchedError(this));
+    this.services.getIngredientsCount(params).then(countFetched(this), countFetchedError(this));
 }
 
 class IngredientsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base___default.a {
     constructor() {
         super();
-        this.currentPage("ingredients");
+        this.currentPage("/ingredients");
         this.pageTitle("Ingredients");
         this.contentTemplate("no-data-template");
 
@@ -221,9 +223,9 @@ class IngredientsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base__
         this.previousPageButtonEnabled = ko.pureComputed(previousPageButtonEnabled, this);
         this.nextPageButtonEnabled = ko.pureComputed(nextPageButtonEnabled, this);
 
-        this.services = new RecipesRestService();
+        this.services = new IngredientsRestService();
 
-        ko.computed(triggerGetRecipesFromRecipeFilter, this).extend({
+        ko.computed(triggerGetIngredientsFromIngredientFilter, this).extend({
             rateLimit: {
                 method: "notifyWhenChangesStop",
                 timeout: 400
@@ -251,48 +253,39 @@ class IngredientsPageViewModel extends __WEBPACK_IMPORTED_MODULE_0__pages_base__
 /* harmony export (immutable) */ __webpack_exports__["IngredientsPageViewModel"] = IngredientsPageViewModel;
 
 
-class RecipesRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a {
+class IngredientsRestService extends __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a {
     constructor() {
         super();
-        this.endpoint = this.hostUrl + "recipe/";
+        this.endpoint = this.hostUrl + "ingredient/";
     }
 
-    getRecipes(options) {
+    getIngredients(options) {
         return this.request({
             method: __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a.method.GET,
             url: this.endpoint + "filter",
             params: {
                 name: options.name,
-                ingredient: options.ingredient,
-                cuisine: options.cuisine,
+                compound: options.compound,
                 skip: options.skip,
                 take: options.take
             }
         });
     }
 
-    getRecipesCount(options) {
+    getIngredientsCount(options) {
         return this.request({
             method: __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a.method.GET,
             url: this.endpoint + "count",
             params: {
                 name: options.name,
-                ingredient: options.ingredient,
-                cuisine: options.cuisine,
+                compound: options.compound,
                 skip: options.skip,
                 take: options.take
             }
-        });
-    }
-
-    getIngredientsStartingWith(name, options) {
-        return this.request({
-            method: __WEBPACK_IMPORTED_MODULE_1__services_restservice___default.a.method.GET,
-            url: this.hostUrl + "ingredients/startswith/" + name
         });
     }
 }
 
 
 /***/ })
-],[6]);
+],[5]);
